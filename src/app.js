@@ -1,15 +1,19 @@
-const express = require("express");
+const express = require ("express");
 
 const app = express();
 
 app.get("/", (req, res) => {
-  res.json({ status: "ok", message: "Hello from CSP451" });
+  res.status(200).json({ status: "ok" });
+});
+
+app.get("/health", (req, res) => {
+  res.json({ status: "healthy", uptime: process.uptime() });
 });
 
 module.exports = app;
 
-// Allow running locally: `npm start`
+// Allow running locally: npm start 
 if (require.main === module) {
   const port = process.env.PORT || 3000;
-  app.listen(port, () => console.log(`Listening on ${port}`));
+  app.listen(port, () => console.log("Listening on " + port));
 }
