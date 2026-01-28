@@ -1,4 +1,4 @@
-const express = require ("express");
+const express = require("express");
 
 const app = express();
 
@@ -12,9 +12,8 @@ app.get("/health", (req, res) => {
 
 module.exports = app;
 
-// Allow running locally: npm start 
+// Allow running locally: npm start
 if (require.main === module) {
   const port = process.env.PORT || 3000;
   app.listen(port, () => console.log("Listening on " + port));
 }
-const add = (a,b)=>{return a+b}
